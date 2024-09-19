@@ -1,11 +1,16 @@
-import { Button } from './core/infra/components/ui/button'
-
+import { QueryClient, QueryClientProvider } from 'react-query'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Home from './app/Home'
+const queryClient = new QueryClient()
 function App() {
   return (
-    <>
-      <h1>app react template</h1>
-      <Button>Click me</Button>
-    </>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </BrowserRouter>
+    </QueryClientProvider>
   )
 }
 
